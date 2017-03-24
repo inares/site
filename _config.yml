@@ -1,0 +1,89 @@
+# Site settings
+language:             "fr"
+title:                "INARES | Cours francophone en ligne"
+description:          "L'INARES propose des cours en ligne gratuits en français sur la philosophie, l'histoire et l'économie. ous allions un enseignement de qualité aux technologies et pédagogies modernes. Tout le monde peut ainsi facilement profiter de ces savoirs."
+keywords:             "INARES, MOOC, francophone, cours, course, e-learning, français, france, enseignement, formation, gratuit, online, en ligne, ligne, distance, à distance, philosophie, histoire, économie, pédagogie, apprentissage, certification, fun, institut, université, bac, lycée, university, 2015, droit, gestion de projet, management"
+google-verification:  ""
+domain:               "inares.org"
+url:                  "https://www.inares.org"
+author:               "INARES"
+logo:                 "/assets/img/logo.jpg"
+mail:                 "contact@inares.org"
+
+timezone:    "Europe/Paris"
+future:      false
+show_drafts: false
+
+is_production: true
+
+
+twitter:
+  username: inares_fr
+
+include:
+  - ".htaccess"
+  - "_pages"
+  - "_headers"
+
+exclude:
+  - "/assets/"
+  - "/guetzli/"
+  - "/validation/"
+  - "bower.json"
+  - "composer.json"
+  - "composer.lock"
+  - "DOC.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "/gulp/"
+  - "gulpfile.js"
+  - "LICENSE.md"
+  - "LICENSE"
+  - "Makefile"
+  - "node_modules"
+  - "npm-debug.log"
+  - "package.json"
+  - "README.md"
+  - "README"
+  - "TODO.txt"
+  - "rev-manifest.json"
+  - "pubstorm.json"
+  - "firebase.json"
+  - ".firebaserc"
+  - "database.rules"
+  - "_pages/kitchen-sink.md"
+  - "*.log"
+  - "*.rb"
+  - "*.yml"
+
+defaults:
+  -
+    scope:
+      path: ""      # empty string for all files
+      type: posts   # limit to posts
+    values:
+      is_post: true # automatically set is_post=true for all posts
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+# Plugins
+gems:             ["jekyll-sitemap", "jekyll-paginate", "jekyll-seo-tag"]
+
+# Conversion
+incremental:      true
+
+# Outputting
+permalink:        "/:year/:month/:title/"
+paginate_path:    "/articles/page:num"
+paginate:         10
+
+# Footnotes
+JekyllFootnotes:  true

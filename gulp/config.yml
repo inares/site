@@ -1,0 +1,108 @@
+browsersync:
+  notify: true
+  open:   false
+  port:   8080
+  server:
+    basedir: "_site/"
+  xip:    false
+
+clean:
+  # The jekyll build dir
+  - "_site"
+
+copy:
+  # Paths to static assets that aren't (S)CSS or JavaScript
+  # because these are completely handled by the sass and javascript tasks
+  assets:
+    # all files below the assets dir
+    - "assets/**/*"
+    # exclusions:
+    - "!assets/img/src/**/*"
+    - "!assets/{js,scss,css}/**/*"   # js, scss and css files
+    - "!assets/css{,/**}"            # css dir
+    - "!assets/js{,/**}"             # js dir
+    - "!assets/scss{,/**}"           # scss dir
+    - "!assets/vendor{,/**}"         # vendor dir
+  dest: "_site/assets/"
+  notification: "Running copy assets"
+
+copy_validation:
+  src:
+    - "validation/*"
+  dest: "_site/"
+  notification: "Running copy validation files"
+
+analytics:
+  src:
+    url_prod: "https://www.google-analytics.com/analytics.js"
+    url_debug: "https://www.google-analytics.com/analytics_debug.js"
+  dest:
+    jekyllRoot: "assets/js/"
+    name: "analytics.js"
+
+javascript:
+  dest:
+    jekyllRoot: "assets/js/"
+    buildDir: "_site/assets/js/"
+  # filename to output
+  filename: "all.js"
+  notification: "Running JavaScript"
+  # Paths to JavaScript libraries, which are combined into one file
+  src:
+    # Paths to your own project code are here
+    # All the files in this list and in the js dir are concatenated into all.js
+    - "!assets/js/all.js"
+    - "assets/js/*.js"
+
+jekyll:
+  notification: "Running jekyll"
+
+revision:
+  revision:
+    dest: "_site/assets"
+    manifest:
+      dest: "./"
+    src:
+      - "assets/css/app.css"
+      - "assets/js/all.js"
+      - "assets/img/**"
+      - "!assets/img/src/**/*"
+      - "assets/fonts/*.woff"
+  collect:
+    dest: "_site"
+    src:
+      - "./rev-manifest.json"
+      - "_site/*.{html,xml,txt,json,css,js}"
+      - "_site/**/*.{html,xml,txt,json,css,js}"
+      - "!_site/assets/vendor"
+
+sass:
+  # Autoprefixer will make sure your CSS works with these browsers
+  compatibility:
+    - "last 2 versions"
+    - "ie >= 9"
+    - "and_chr >= 2.3"
+  dest:
+    jekyllRoot: "assets/css/"
+    buildDir: "_site/assets/css/"
+  notification: "Running SASS"
+  src: "assets/scss/*.scss"
+
+watch:
+  images:     "assets/img/**/*"
+  javascript: "assets/js/app.js"
+  sass:       "assets/scss/**/*.scss"
+  plugins:    "_plugins/*"
+  pages:
+    - "*.{md,html,yml,xml}"
+    - "{_data,_includes,_layouts,_pages,_posts, articles}/**/*.{md,html,yml,xml}"
+    - "!_site/**/*.*"
+    - "!assets/**/*.*"
+
+selectors:
+  src:
+    - "assets/css/"
+    - "_site/*.{html,xml,txt,json,css,js}"
+    - "_site/**/*.{html,xml,txt,json,css,js}"
+  dest:
+    - "assets/css/"

@@ -1,0 +1,42 @@
+---
+layout: default
+seo:
+  - type: Article
+---
+
+<main>
+    <span class="article_recent" style="display: none;">
+      <h1>Derniers articles</h1>
+{% assign max_article = 3 %}
+{% assign counter = 1 %}
+
+{% assign sorted = (site.posts | sort: 'date') | reverse %}
+{% for post in sorted %}
+    <div class="listearticle">
+        <h2 class="centretitre"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{{ post.date | i18n_date_long }}</p>
+        <p class="excerpt">{{ post.excerpt }}</p>
+        <p><a href="{{ post.url }}">Lire la suite ...</a></p>
+    </div>
+    {% if counter < 3 %}
+    <hr />
+    {% endif %}
+
+
+  {% if counter == 3 %}
+    {% break %}
+  {% endif %}
+  
+  {% assign counter = counter | plus: 1 %}
+{% endfor %}
+      <hr />
+      <h1>Notes</h1>
+    </span>
+  <article>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | i18n_date_long }}</p>
+    <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    </div>
+  </article>
+</main>

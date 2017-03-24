@@ -1,0 +1,68 @@
+// --------------------------------------------------
+// Theme
+// --------------------------------------------------
+
+
+
+
+body {
+  -webkit-font-smoothing: antialiased !important;
+  font-family: $font-family-sans-serif;
+  margin: 0px;
+
+
+  > .container {
+    padding: 30px 15px 0 15px;   // For homepage
+  }
+}
+
+
+
+a {
+  font-weight: 700;
+  outline: 0;
+  text-decoration: none;
+  background-color: transparent;
+}
+/*a:active {
+  top: 1px;
+}*/
+
+a:active, a:hover {
+  outline: 0;
+}
+
+
+
+$svg-scale: 1.5;
+
+.sgv-img {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: -2px;
+  margin-right: 2px;
+  width: $svg-scale*1em;
+  height: $svg-scale*1em;
+}
+
+.sgv-graduation {
+  width: $svg-scale*1.2857142857142856em;
+  margin-bottom: -6px;
+}
+
+.sgv-cogs {
+  width: $svg-scale*1.0712890625em;
+  margin-bottom: -4px;
+}
+
+.sgv-home {
+  width: $svg-scale*0.9287109375em;
+  margin-bottom: -4px;
+}
+
+.sgv-users {
+  width: $svg-scale*1.125em;
+}

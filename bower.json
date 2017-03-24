@@ -1,0 +1,10 @@
+{
+  "name": "inares",
+  "version": "0.1",
+  "description": "INARES",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+  },
+  "private": true
+}

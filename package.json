@@ -1,0 +1,55 @@
+{
+  "name": "inares-site",
+  "version": "0.3.0",
+  "description": "Page d'accueil du site de l'INARES",
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-download": "0.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "cross-spawn": "^2.1.4",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.0.0",
+    "gulp-rev-collector": "^1.0.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.8",
+    "js-yaml": "^3.8.2",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "yargs": "^4.1.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --production",
+    "test": "gulp build --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inares/site"
+  },
+  "_aerobatic": {
+    "build": {
+      "engine": "jekyll",
+      "notify": {
+        "email": {
+          "recipients": [
+            "admin@inares.org"
+          ],
+          "sendOnSuccess": true
+        }
+      }
+    }
+  }
+}
