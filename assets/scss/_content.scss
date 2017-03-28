@@ -1,24 +1,18 @@
 /*
  * -- CONTENT STYLES --
- * This represents the content area (everything below the blue section)
  */
 .content-wrapper {
-    /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    // width: 100%;
+    position:   absolute;
     min-height: 12%;
-    z-index: 2;
+    z-index:    2;
     background: white;
-}
+    width:      100%;
 
-@media( min-width: $grid-float-breakpoint ) {
-  .content-wrapper {
+  @media( min-width: $grid-float-breakpoint ) {
     top: 550px;
   }
-}
 
-@media( max-width: $grid-float-breakpoint-max ) {
-  .content-wrapper {
+  @media( max-width: $grid-float-breakpoint-max ) {
     top: 500px;
   }
 }
@@ -27,49 +21,52 @@
   min-height: 100%;
 }
 
-
-
-
 .text-muted-feat {
   font-size: 80%;
+}
 
-  &.gray {
-    color: $gray-light;
-  }
 
-  &.purple {
+.featurette-transp {
+  // width: 100%;
+  background-color: $theme-orange-lighter;
+  color: $theme-purple-darker;
+
+  .text-muted-feat {
     color: $theme-purple-light;
   }
 }
 
 
-.featurette-transp {
-  width: 100%;
-}
-
-
 .featurette-violet {
-  width: 100%;
   background-color: $theme-purple-dark;
-  color: $gray-lighter;
+  color: $color-anti-flash-white;
 
   .featurette-heading::first-line {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  .text-muted-feat {
+    // color: $theme-purple-lighter;
+    color: $theme-orange-lighter;
   }
 }
 
 
 .featurette-heading {
-  font-weight: $font-semibold;
+  font-weight: $font-bold;
   letter-spacing: -1px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  z-index: 10;
+  position: relative;
 
   @media( min-width: $grid-float-breakpoint ) {
-    font-size: 48px;
+    font-size: 3em;
     line-height: 1.1;
   }
 
   @media( max-width: $grid-float-breakpoint-max ) {
-    font-size: 38px;
+    font-size: 2em;
     line-height: 1;
   }
 }
@@ -80,33 +77,117 @@
 }
 
 
-@media( min-width: $grid-float-breakpoint ) {
-  .featurette-text { padding: 5% 2%; }
-}
-
 
 @media( max-width: $grid-float-breakpoint-max ) {
-  .navbar-nav { margin: 0; }
-  .featurette-text { padding: 2% 1%; }
+  .navbar-nav {
+    margin: 0;
+  }
+
+  .featurette-text {
+    padding: 2% 1%;
+  }
 }
+
+
+.lead {
+  margin-bottom: 2%;
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.4;
+  z-index: 10;
+  position: relative;
+}
+
+@media( min-width: $grid-float-breakpoint ) {
+  .lead {
+    font-size: 1.4em;
+  }
+
+  .featurette-text {
+    padding: 3% 2%;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+}
+
+
+.container {
+  margin-right:  auto;
+  margin-left:   auto;
+  padding-left:  15px;
+  padding-right: 15px;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@media (min-width: $screen-lg) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
 
 
 
 /*   THUMBNAILS (for courses on home page)   */
+.row {
+  margin-left:  -15px;
+  margin-right: -15px;
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+.col-md-4, .col-lg-4, .col-sm-6, .col-xs-12 {
+    position:      relative;
+    min-height:    1px;
+    padding-left:  15px;
+    padding-right: 15px;
+}
+
+.col-xs-12 {
+  float: left;
+}
+
+@media (min-width: 850px) {
+  .col-sm-6 {
+    width: 45%;
+    float: left;
+  }
+}
+
+@media (min-width: $screen-md) {
+  .col-md-4 {
+    width: 30%;
+    float: left;
+  }
+}
+
+
+
 
 .thumb {
-  border:        1px solid $theme-purple-dark;
+  border:        1px solid $theme-orange-lighter;
   border-radius: 4px;
   overflow:      hidden;
   margin-bottom: 20px;
   height:        250px;
-
-  /*@media (min-width: $screen-sm-min) {
-    height: 250px;
-  }
-  @media (max-width: $screen-xs-max) {
-    height: 200px;
-  }*/
 
   > .thumb-overlay {
     background-image:  inherit;
@@ -198,19 +279,54 @@
 }
 
 
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 
 
+
+/*
+  Matrix
+*/
+@media( max-width: $grid-float-breakpoint-max ) {
+  .quote {
+    display: none;
+  }
+}
 
 .quote {
-  display: none;
+  // display: none;
   cursor: default;
   color: #00331a;
   margin: 0 auto 0;
   -webkit-perspective: 1000vmin;
           perspective: 1000vmin;
   width: 30vw;
-  z-index: 1001;
+  z-index: 0;
   top: 120px;
   left: 0;
   right: 0;
@@ -242,5 +358,50 @@
           transform-origin: 50% 100%;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  z-index: 9001;
+  z-index: 1;
 }
+
+
+
+
+
+// video {
+//   background-color: $theme-purple-dark;
+//   background-image: /* Ici, notre vidéo */;
+//   background-position: center center;
+//   background-size: contain;
+// }
+
+
+
+#player {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  left: 0;
+  height: 500px;
+  overflow: hidden;
+  background-color: $theme-purple-dark;
+}
+// #player > video {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 500px;
+// }
+/* 1. No object-fit support: */
+// @media (min-aspect-ratio: 16/9) {
+//   #player > video { height: 300%; top: -100%; }
+// }
+// @media (max-aspect-ratio: 16/9) {
+//   #player > video { width: 300%; left: -100%; }
+// }
+/* 2. If supporting object-fit, overriding (1): */
+// @supports (object-fit: cover) {
+//   #player > video {
+//     top: 0; left: 0;
+//     width: 100%; height: 100%;
+//     object-fit: cover;
+//   }
+// }

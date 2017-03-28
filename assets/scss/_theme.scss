@@ -10,7 +10,6 @@ body {
   font-family: $font-family-sans-serif;
   margin: 0px;
 
-
   > .container {
     padding: 30px 15px 0 15px;   // For homepage
   }
@@ -23,13 +22,13 @@ a {
   outline: 0;
   text-decoration: none;
   background-color: transparent;
+  color: $theme-green-light;
 }
-/*a:active {
-  top: 1px;
-}*/
 
-a:active, a:hover {
+a:active, a:hover, a:focus {
   outline: 0;
+  color: $theme-green;
+  text-decoration: none;
 }
 
 

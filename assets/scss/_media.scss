@@ -1,0 +1,55 @@
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.img-responsive {
+  display:   block;
+  max-width: 100%;
+  height:    auto;
+}
+
+.media-left, .media-right {
+  display: table-cell;
+}
+
+.media-middle {
+  vertical-align: middle;
+}
+
+.media-body {
+  display: table-cell;
+}
+
+
+@media( min-width: $grid-float-breakpoint ) {
+  .media-left {
+    padding-right: 2%;
+  }
+
+  .media-right {
+    padding-left: 2%;
+  }
+}
+
+
+
+
+@media( max-width: $grid-float-breakpoint-max ) {
+  .media:first-child {
+    margin-top: auto;
+  }
+
+  .media-left, .media-right {
+    display: inline;
+  }
+
+  .media-left > img, .media-right > img {
+    margin-right: auto;
+    margin-left:  auto;
+    height:       auto;
+    max-width:    100%;
+    padding:      2% 0;
+    display:      block;
+  }
+}

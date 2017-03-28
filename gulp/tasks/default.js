@@ -1,6 +1,6 @@
 var gulp         = require("gulp");
 var sequence     = require("run-sequence");
-var isProduction = require("../util/isProduction");
+var isProduction = require("../util/getArgs").isProduction;
 
 gulp.task("default", function(done) {
   if( isProduction ) {

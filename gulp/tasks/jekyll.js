@@ -1,7 +1,7 @@
 var browserSync   = require("browser-sync");
 var config        = require("../util/loadConfig").jekyll;
 var gulp          = require("gulp");
-var isProduction  = require("../util/isProduction");
+var isProduction  = require("../util/getArgs").isProduction;
 var spawn         = require("cross-spawn");
 
 gulp.task("jekyll-build", function(done) {

@@ -1,1 +1,2 @@
 https://html5up.net/big-picture
+https://github.com/inares/edx-theme/blob/master/static/css/all.css

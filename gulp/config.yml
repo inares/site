@@ -33,25 +33,37 @@ copy_validation:
   notification: "Running copy validation files"
 
 analytics:
-  src:
-    url_prod: "https://www.google-analytics.com/analytics.js"
-    url_debug: "https://www.google-analytics.com/analytics_debug.js"
-  dest:
-    jekyllRoot: "assets/js/"
-    name: "analytics.js"
+  prod:
+    src:  "https://www.google-analytics.com/analytics.js"
+    name: "dl_analytics_prod.js"
+  debug:
+    src:  "https://www.google-analytics.com/analytics_debug.js"
+    name: "dl_analytics_debug.js"
+  # src:
+  #   url_prod: "https://www.google-analytics.com/analytics.js"
+  #   url_debug: "https://www.google-analytics.com/analytics_debug.js"
+  # dest:
+  #   name_prod: "dl_analytics_prod.js"
+  #   name_debug: "dl_analytics_debug.js"
 
 javascript:
   dest:
-    jekyllRoot: "assets/js/"
-    buildDir: "_site/assets/js/"
+    buildJSDir: "assets/js/"
+    siteJSDir: "_site/assets/js/"
   # filename to output
-  filename: "all.js"
+  filename_concat:     "main.js"
+  filename_concat_min: "main.min.js"
+  filename_all:        "all.js"
   notification: "Running JavaScript"
   # Paths to JavaScript libraries, which are combined into one file
   src:
     # Paths to your own project code are here
     # All the files in this list and in the js dir are concatenated into all.js
-    - "!assets/js/all.js"
+    - "!assets/js/main*.js"
+    - "!assets/js/all*.js"
+    - "!assets/js/dl_analytics*.js"
+    # Order is important: app must come first
+    - "assets/js/app.js"
     - "assets/js/*.js"
 
 jekyll:
@@ -90,7 +102,7 @@ sass:
 
 watch:
   images:     "assets/img/**/*"
-  javascript: "assets/js/app.js"
+  javascript: "assets/js/*.js"
   sass:       "assets/scss/**/*.scss"
   plugins:    "_plugins/*"
   pages:

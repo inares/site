@@ -1,26 +1,72 @@
-var gulp          = require("gulp");
-var gulpif        = require("gulp-if");
-var rename        = require("gulp-rename");
-var download      = require("gulp-download");
-var config        = require("../util/loadConfig").analytics;
-var isProduction  = require("../util/isProduction");
+/*
+  ! ABANDONNÉ !
+  Fusionné avec la tâche javascript
+*/
+
+const fs       = require('fs');
+var pump       = require('pump');
+const gulp     = require("gulp");
+var util       = require('util');
+const gulpif   = require("gulp-if");
+const concat   = require("gulp-concat");
+const rename   = require("gulp-rename");
+const download = require("gulp-download");
+const del      = require('del');
+const config   = require("../util/loadConfig").analytics;
+const args     = require("../util/getArgs");
+
+const millisecondsPerDay = 24 * 60 * 60 * 1000;
 
 
-gulp.task("analytics", function(done) {
-  if( isProduction ) {
-    return download(config.src.url_prod)
-           .pipe(rename(config.dest.name))
-           .pipe( gulp.dest(config.dest.jekyllRoot) );
+
+gulp.task("analytics", function(cb) {
+  // del(config.dest.jekyllRoot+config.dest.name).then(paths => {
+  //   if( paths.length )
+  //     console.log('Deleted files:\n', paths.join('\n'));
+  // });
+
+  var srcURL, destName, destPath;
+  if( args.isProduction ) {
+    srcURL   = config.src.url_prod;
+    destName = config.dest.name_prod;
   } else {
-    return download(config.src.url_debug)
-           .pipe(rename(config.dest.name))
-           .pipe( gulp.dest(config.dest.jekyllRoot) );
+    srcURL   = config.src.url_debug;
+    destName = config.dest.name_debug;
   }
-  
-  // return gulpif( isProduction, download(config.src.url_prod) )
-         // .pipe( gulpif( ! isProduction, download(config.src.url_debug) ) )
-         // .on("end", function(){ console.log(isProduction); })
-         // .pipe( rename(config.dest.name) )
-         // .pipe( gulp.dest(config.dest.jekyllRoot) );
-  
+  destPath = config.dest.buildJSDir + destName;
+
+  var diffDays = 99;
+  if( fs.existsSync(destPath) ) {
+    var stats = fs.statSync( destPath );
+    var mtime = new Date( util.inspect(stats.mtime) );
+    diffDays  = ((new Date()) - mtime) / millisecondsPerDay;
+  }
+
+  if( diffDays > 7 ) {
+    pump( [
+        download( srcURL ),
+        rename( destName ),
+        gulp.dest( config.dest.buildJSDir )
+      ], cb );
+  } else {
+    return gulp.src('.');
+  }
+
+
+  // if( args.isProduction ) {
+  //   // var vendorStyles =
+
+  //   return download(config.src.url_prod)
+  //         // .pipe(
+  //         .pipe(rename(config.dest.name))
+  //         .pipe( gulp.dest(config.dest.buildJSDir) );
+  // } else if (args.isAnalytics) {
+  //   return download(config.src.url_debug)
+  //         .pipe(rename(config.dest.name))
+  //         .pipe( gulp.dest(config.dest.buildJSDir) );
+  // } else {
+  //   // return nop();
+  //   return gulp.src('.');
+  // }
+
 });

@@ -4,12 +4,17 @@
 
 
 $theme-purple-dark:    #3E0466;
+$theme-purple-darker:  darken($theme-purple-dark, 10%);
 $theme-purple-light:   #5c3097;
 $theme-purple-lighter: lighten($theme-purple-dark, 20%);
 //$theme-purple-lighter: #7419B2;
 $theme-orange:         #BF8A2E;
+$theme-orange-lighter: lighten($theme-orange, 10%);
 $theme-green-dark:     #057F3A;
-$theme-green-light:    #18FF7B;
+// $theme-green-light:    #18FF7B;
+
+$theme-green-light:    #A3CF68;
+$theme-green:          #C1FB99;
 
 $color-anti-flash-white: #F3F7F0;
 

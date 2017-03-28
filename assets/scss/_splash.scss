@@ -4,7 +4,8 @@
  */
 
 .splash-container {
-    background: $theme-purple-dark;
+    // background-color: rgba(92, 48, 151, 1);  /* $theme-purple-dark */
+    background-color: $theme-purple-dark;  /* $theme-purple-dark */
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -13,6 +14,8 @@
     top: 0;
     left: 0;
     position: fixed !important;
+    // opacity: 0.5;
+    // filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
 .splash {
@@ -48,11 +51,11 @@
   .splash-head {
     padding: 0.5em 1em;
   }
-  
+
   .splash-subhead {
     margin-top: 10px;
   }
-  
+
   .splash {
     width: 90%;
     margin-top: 70px;
@@ -70,11 +73,11 @@
     font-size: 2.5em;
     padding: 1em 1.6em;
   }
-  
+
   .splash-subhead {
     font-size: 1.5em;
   }
-  
+
   .splash {
     width: 70%;
     margin-top: 100px;

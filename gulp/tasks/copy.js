@@ -2,7 +2,7 @@ var $             = require("gulp-load-plugins")();
 var browserSync   = require("browser-sync");
 var config        = require("../util/loadConfig").copy;
 var gulp          = require("gulp");
-var isProduction  = require("../util/isProduction");
+var isProduction  = require("../util/getArgs").isProduction;
 
 gulp.task("copy", function() {
   browserSync.notify(config.notification);

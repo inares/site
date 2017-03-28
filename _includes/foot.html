@@ -1,5 +1,6 @@
-  <script async src="/assets/js/all.js"></script>
+  <script async src="/assets/js/all.min.js"></script>
 
+{% comment %}
   <link rel="prefetch" href="/articles/">
 {% assign counter = 1 %}
 {% assign sorted = (site.posts | sort: 'date') | reverse %}
@@ -14,6 +15,8 @@
   {% endif %}
   {% assign counter = counter | plus: 1 %}
 {% endfor %}
+{% endcomment %}
+
 
 </body>
 </html>
