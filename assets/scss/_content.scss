@@ -2,7 +2,7 @@
  * -- CONTENT STYLES --
  */
 .content-wrapper {
-    position:   absolute;
+    position:   relative;
     min-height: 12%;
     z-index:    2;
     background: white;
@@ -154,7 +154,7 @@
 }
 
 
-.col-md-4, .col-lg-4, .col-sm-6, .col-xs-12 {
+.col-md-4, .col-lg-4, .col-sm-6, .col-xs-12, .col-lg-12 {
     position:      relative;
     min-height:    1px;
     padding-left:  15px;
@@ -165,7 +165,15 @@
   float: left;
 }
 
-@media (min-width: 850px) {
+
+@media (min-width: $screen-lg) {
+  .col-lg-12 {
+    width: 100%;
+    float: left;
+  }
+}
+
+@media (min-width: $screen-sm) {
   .col-sm-6 {
     width: 45%;
     float: left;
