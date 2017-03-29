@@ -9,32 +9,18 @@ var youtube_activated = true;
 if( youtube_activated ) {
   (function() {
     var eQuote = document.querySelector("#neat");
-    if( getComputedStyle(eQuote).getPropertyValue('display') == "none" )
+    if( getComputedStyle(eQuote).getPropertyValue('display') === "none" )
       return;
 
-    /* loads the IFrame Player API code asynchronously */
+    /* Loads the IFrame Player API code asynchronously */
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    // console.log( "ICI 3" );
-
-    /* The API will call this function when the video player is ready.*/
-    function onPlayerReady( event ) {
-      // console.log( "ICI onPlayerReady 1" );
-      var player = event.target;
-      player.mute();
-      player.setVolume(0);
-      player.playVideo();
-    }
-
-    // console.log( "ICI 5" );
 
     /* This function creates an <iframe> (and YouTube player) after the API code downloads. */
-    var player;
     function onYouTubeIframeAPIReady() {
-      // console.log( "ICI onYouTubeIframeAPIReady 1" );
-      player = new YT.Player( 'player', {
+      new YT.Player( 'player', {
         'height':  '500px',
         'width':   '100%',
         'videoId': '6rdTSv8V1P4',
@@ -57,7 +43,13 @@ if( youtube_activated ) {
           'start': 3
         },
         'events': {
-          'onReady': onPlayerReady
+           /* The API will call this function when the video player is ready.*/
+          'onReady': function( event ) {
+            var player = event.target;
+            player.mute();
+            player.setVolume(0);
+            player.playVideo();
+          }
         }
       } );
     };
@@ -65,9 +57,7 @@ if( youtube_activated ) {
     // Store the function in a global property referenced by a string:
     window['onYouTubeIframeAPIReady'] = onYouTubeIframeAPIReady;
 
-    var accueil = document.querySelector("#accueil");
-    accueil.style.backgroundColor = "rgba(92, 48, 151, 0.8)";
-    // console.log( "ICI 9" );
+    document.querySelector("#accueil").style.backgroundColor = "rgba(92, 48, 151, 0.8)";
   })();
 } else {
 }

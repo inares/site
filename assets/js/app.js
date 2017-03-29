@@ -56,14 +56,8 @@ function loadOK() {
       // console.log( "onFocus" );
     }
 
-
-    /*if ( //@cc_on!@//false ) { // check for Internet Explorer
-      document.onfocusin  = onFocus;
-      document.onfocusout = onBlur;
-    } else*/ {
-      window.onfocus = onFocus;
-      window.onblur  = onBlur;
-    }
+    window.onfocus = onFocus;
+    window.onblur  = onBlur;
 
     if( ! timer ) {
       if( document.hasFocus ) {
