@@ -53,18 +53,18 @@ javascript:
   # filename to output
   filename_concat:     "main.js"
   filename_concat_min: "main.min.js"
-  filename_all:        "all.js"
+  filename_all:        "all.min.js"
   notification: "Running JavaScript"
   # Paths to JavaScript libraries, which are combined into one file
   src:
     # Paths to your own project code are here
     # All the files in this list and in the js dir are concatenated into all.js
+    - "assets/js/app.js"
+    - "assets/js/*.js"
     - "!assets/js/main*.js"
     - "!assets/js/all*.js"
     - "!assets/js/dl_analytics*.js"
     # Order is important: app must come first
-    - "assets/js/app.js"
-    - "assets/js/*.js"
 
 jekyll:
   notification: "Running jekyll"
@@ -102,8 +102,8 @@ sass:
 
 watch:
   images:     "assets/img/**/*"
-  javascript: "assets/js/*.js"
-  sass:       "assets/scss/**/*.scss"
+  # javascript: "assets/js/*.js"
+  # sass:       "assets/scss/**/*.scss"
   plugins:    "_plugins/*"
   pages:
     - "*.{md,html,yml,xml}"

@@ -92,7 +92,7 @@ function loadOK() {
         eQuote.innerHTML += "<span>" + aQuote[word] + "</span>";
       } );*/
       for(var word in aQuote){
-        eQuote.innerHTML += "<span>" + word + "</span>";
+        eQuote.innerHTML += "<span>" + aQuote[word] + "</span>";
       }
 
       // ...and save them for later

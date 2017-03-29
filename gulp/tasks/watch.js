@@ -1,13 +1,13 @@
 var browserSync = require("browser-sync");
-var config      = require("../util/loadConfig").watch;
+var config      = require("../util/loadConfig");
 var gulp        = require("gulp");
 
 // Watch files for changes, recompile/rebuild and reload the browser
 gulp.task("watch", function() {
-  gulp.watch(config.pages, ["build", browserSync.reload]);
-  gulp.watch(config.javascript, ["javascript", browserSync.reload]);
+  gulp.watch(config.watch.pages, ["build", browserSync.reload]);
+  gulp.watch(config.javascript.src, ["javascript", browserSync.reload]);
   // No browser reload needed here, browserSync injects the stylesheet into browsers
-  gulp.watch(config.sass, ["sass"]);
-  gulp.watch(config.images, ["copy", browserSync.reload]);
-  gulp.watch(config.plugins, ["build", browserSync.reload]);
+  gulp.watch(config.sass.src, ["sass"]);
+  gulp.watch(config.watch.images, ["copy", browserSync.reload]);
+  gulp.watch(config.watch.plugins, ["build", browserSync.reload]);
 });

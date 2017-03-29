@@ -35,10 +35,10 @@ if( youtube_activated ) {
     function onYouTubeIframeAPIReady() {
       // console.log( "ICI onYouTubeIframeAPIReady 1" );
       player = new YT.Player( 'player', {
-        height:  '500px',
-        width:   '100%',
-        videoId: '6rdTSv8V1P4',
-        playerVars: {
+        'height':  '500px',
+        'width':   '100%',
+        'videoId': '6rdTSv8V1P4',
+        'playerVars': {
           /*  https://developers.google.com/youtube/player_parameters?playerVersion=HTML5#Parameters */
           'autoplay': 1,
           'cc_load_policy': 0,
@@ -56,14 +56,14 @@ if( youtube_activated ) {
           'showinfo': 0,              /* Le lecteur n'affiche aucune information, comme le titre de la vidéo et l'utilisateur l'ayant mise en ligne, avant le lancement de la lecture */
           'start': 3
         },
-        events: {
+        'events': {
           'onReady': onPlayerReady
         }
       } );
     };
 
     // Store the function in a global property referenced by a string:
-    // window['onYouTubeIframeAPIReady'] = onYouTubeIframeAPIReady;
+    window['onYouTubeIframeAPIReady'] = onYouTubeIframeAPIReady;
 
     var accueil = document.querySelector("#accueil");
     accueil.style.backgroundColor = "rgba(92, 48, 151, 0.8)";

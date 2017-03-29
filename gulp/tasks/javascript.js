@@ -29,8 +29,8 @@ gulp.task("javascript", function(done) {
   var configJ = config.javascript;
   var configA = isProduction ? config.analytics.prod : config.analytics.debug;
 
-  function completed() {  /*for "pump" */
-    if (--remains===0)  done( null, '' );
+  function completed( a, b ) {  /*for "pump" */
+    if (--remains===0 || a)  done( a, b );
   }
 
   browserSync.notify( configJ.notification );
@@ -49,29 +49,32 @@ gulp.task("javascript", function(done) {
   if( diffDays > 7 ) {
     remains++;
     pump( [
-        download( configA.src ),
+        download( [configA.src] ),
         rename( configA.name ),
         gulp.dest( configJ.dest.buildJSDir )
       ], completed );
   }
 
 
+  /* Concatenation of JS source files and minification */
   remains++;
   pump( [
     gulp.src(configJ.src),
     concat(configJ.filename_concat),
     gulp.dest(configJ.dest.buildJSDir),
-
     // uglify({ mangle: {keep_fnames: false}, compress: {unused: false, keep_fnames: false}, report: "min", preserveComments: false }),
-    closure(),
-    rename(configJ.filename_concat_min),
-    gulp.dest(configJ.dest.buildJSDir),
+    closure( {path: configJ.dest.buildJSDir+configJ.filename_concat_min, js_externs: 'window.ga;ga;YT.Player;onYouTubeIframeAPIReady;loadOK;'} ),
+    // rename(configJ.filename_concat_min),
+    gulp.dest(configJ.dest.buildJSDir)
+  ], completed );
 
-    concat(analyticsDestPath),
-    rename(configJ.filename_all),
+  /* Concatenation with Google Analytics */
+  remains++;
+  pump( [
+    gulp.src( [configJ.dest.buildJSDir+configJ.filename_concat_min, analyticsDestPath] ),
+    concat(configJ.filename_all),
     gulp.dest(configJ.dest.buildJSDir),
-
-    gulpIf(!isProduction, gulp.dest(configJ.dest.siteJSDir))
+    gulpIf( !isProduction, gulp.dest(configJ.dest.siteJSDir) )
   ], completed );
   return;
 

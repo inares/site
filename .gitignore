@@ -2,8 +2,17 @@
 assets/css/app.css
 
 # JavaScript
-assets/js/all.js
+assets/js/all*.js
+assets/js/main*.js
+assets/js/dl_analytics*.js
 rev-manifest.json
+
+# Vendor directory
+assets/vendor/
+
+# Jekyll build
+_site
+.jekyll-metadata
 
 # Cache
 .sass-cache/
@@ -37,18 +46,9 @@ $RECYCLE.BIN/
 node_modules/**/*
 npm-debug.log
 
-# Jekyll
-_site
-.jekyll-metadata
-
-# Vendor directory
-assets/vendor/
-
 # Ruby
 Gemfile.lock
 
 # Composer
 composer.lock
 
-
-assets/js/analytics.js
