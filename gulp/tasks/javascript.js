@@ -7,13 +7,12 @@ const gulpIf        = require('gulp-if');
 const uglify        = require('gulp-uglify');
 const request       = require('request');
 const download      = require("gulp-download");
-const querystring   = require('querystring');
 const browserSync   = require("browser-sync");
 const rename        = require("gulp-rename");
 const concat        = require("gulp-concat");
 const gulp          = require("gulp");
 
-const closure       = require("../util/closure_compiler_post");
+const closure       = require("gulp-google-closure-compiler-post");
 
 const config        = require("../util/loadConfig");
 const isProduction  = require("../util/getArgs").isProduction;
@@ -63,8 +62,8 @@ gulp.task("javascript", function(done) {
     concat(configJ.filename_concat),
     gulp.dest(configJ.dest.buildJSDir),
     // uglify({ mangle: {keep_fnames: false}, compress: {unused: false, keep_fnames: false}, report: "min", preserveComments: false }),
-    closure( {path: configJ.dest.buildJSDir+configJ.filename_concat_min, js_externs: 'window.ga;ga;YT.Player;onYouTubeIframeAPIReady;loadOK;'} ),
-    // rename(configJ.filename_concat_min),
+    closure( {jsExterns: 'window.ga;ga;YT.Player;onYouTubeIframeAPIReady;loadOK;'} ),
+    rename(configJ.filename_concat_min),
     gulp.dest(configJ.dest.buildJSDir)
   ], completed );
 
