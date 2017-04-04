@@ -1,3 +1,14 @@
-- link: Twitter
-  url: https://twitter.com/inares_fr
+- name: Contact
+  url : /contact
+
+- name: Charte
+  url : /charte
+
+- name: Conditions d’utilisation
+  url : /conditions
+
+- name: Confidentialité
+  url : /confidentialite
+
+
 

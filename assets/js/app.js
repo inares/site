@@ -71,10 +71,9 @@ function loadOK() {
 
 
     /**** Matrix effect ****/
-    var matrix_activated = true;
+    var eQuote = document.querySelector("#neat");
+    var matrix_activated = true && eQuote;
     if( matrix_activated ) {
-      var eQuote = document.querySelector("#neat");
-
       var regex = /\ /;
       // save the original paragraph as array of words
       // regex = /[,.?!;:]/; /* Uncomment for sentences */
@@ -89,15 +88,15 @@ function loadOK() {
         eQuote.innerHTML += "<span>" + aQuote[word] + "</span>";
       }
 
-      // ...and save them for later
-      var eWords = document.querySelectorAll("span");
+      // ... and save them for later
+      var eWords = eQuote.querySelectorAll("span");
 
-      function fHighlightRandomWord (e) {
+      function fHighlightRandomWord( e ) {
         var iRandom = Math.floor(Math.random() * e.length);
         e[iRandom].classList.add("highlight");
       }
 
-      function fClearAllHighlights (e) {
+      function fClearAllHighlights( e ) {
         var nlHighlights = e.querySelectorAll(".highlight");
         // convert the nodeList into an array
         var aHighlights = Array.prototype.slice.call(nlHighlights);

@@ -9,10 +9,11 @@ url:                  "https://www.inares.org"
 author:               "INARES"
 logo:                 "/assets/img/logo.jpg"
 mail:                 "contact@inares.org"
+timezone:             "Europe/Paris"
 
-timezone:    "Europe/Paris"
 future:      false
 show_drafts: false
+encoding:    "utf-8"
 
 is_production: true
 
@@ -55,35 +56,24 @@ exclude:
   - "*.log"
   - "*.rb"
   - "*.yml"
+  - "yarn.lock"
 
-defaults:
-  -
-    scope:
-      path: ""      # empty string for all files
-      type: posts   # limit to posts
-    values:
-      is_post: true # automatically set is_post=true for all posts
+keep_files:
+  - "img"
 
 compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: [local]
+  clippings:  all
+  comments:   ["<!-- ", " -->"]
+  endings:    all
   blanklines: false
-  profile: false
-  startings: [html, head, body]
+  profile:    false
+  startings:  [html, head, body]
 
 # Plugins
-gems:             ["jekyll-sitemap", "jekyll-paginate", "jekyll-seo-tag"]
+gems: ["jekyll-sitemap", "jekyll-seo-tag"]
 
 # Conversion
-incremental:      true
+incremental: true
 
 # Outputting
-permalink:        "/:year/:month/:title/"
-paginate_path:    "/articles/page:num"
-paginate:         10
-
-# Footnotes
-JekyllFootnotes:  true
+permalink: "/:year/:month/:title/"

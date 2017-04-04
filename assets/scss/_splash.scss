@@ -8,6 +8,7 @@
     background-color: $theme-purple-dark;  /* $theme-purple-dark */
     z-index: 1;
     overflow: hidden;
+
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
     height: 100%;
@@ -19,7 +20,6 @@
 }
 
 .splash {
-    /* absolute center .splash within .splash-container */
     height: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -68,7 +68,7 @@
 
 
 @media (min-width: $grid-float-breakpoint) {
-  /* We increase the header font size even more */
+  // Increase font size for large screen
   .splash-head {
     font-size: 2.5em;
     padding: 1em 1.6em;

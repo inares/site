@@ -7,5 +7,4 @@ source "https://rubygems.org"
 gem 'sass',  '>=3.4.3'
 gem 'jekyll', '>=3.0'
 gem 'jekyll-sitemap'
-gem 'jekyll-paginate'
 gem 'jekyll-seo-tag'

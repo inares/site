@@ -17,12 +17,9 @@ copy:
     # all files below the assets dir
     - "assets/**/*"
     # exclusions:
-    - "!assets/img/src/**/*"
-    - "!assets/{js,scss,css}/**/*"   # js, scss and css files
-    - "!assets/css{,/**}"            # css dir
-    - "!assets/js{,/**}"             # js dir
-    - "!assets/scss{,/**}"           # scss dir
-    - "!assets/vendor{,/**}"         # vendor dir
+    - "!assets/img/src{,/**/*}"
+    - "!assets/{js,scss,css}{,/**/*}"   # js, scss and css files and dir
+    - "!assets/vendor{,/**}"            # vendor dir
   dest: "_site/assets/"
   notification: "Running copy assets"
 
@@ -45,6 +42,15 @@ analytics:
   # dest:
   #   name_prod: "dl_analytics_prod.js"
   #   name_debug: "dl_analytics_debug.js"
+
+
+image:
+  thumb:
+    original: "assets/img/src/course_thumb/original/"
+    reduced : "assets/img/src/course_thumb/reduced/"
+  src: "assets/img/src/"
+  buildImgDir: "assets/img/"
+
 
 javascript:
   dest:
@@ -70,15 +76,15 @@ jekyll:
   notification: "Running jekyll"
 
 revision:
-  revision:
+  sources:
     dest: "_site/assets"
     manifest:
       dest: "./"
     src:
-      - "assets/css/app.css"
-      - "assets/js/all.js"
+      # - "assets/css/app.css"
+      # - "assets/js/all.js"
       - "assets/img/**"
-      - "!assets/img/src/**/*"
+      - "!assets/img/src{,/**/*}"
       - "assets/fonts/*.woff"
   collect:
     dest: "_site"
@@ -92,11 +98,12 @@ sass:
   # Autoprefixer will make sure your CSS works with these browsers
   compatibility:
     - "last 2 versions"
-    - "ie >= 9"
+    - "ie >= 10"
     - "and_chr >= 2.3"
   dest:
-    jekyllRoot: "assets/css/"
-    buildDir: "_site/assets/css/"
+    buildSASSDir: "assets/css/"
+    siteSASSDir: "_site/assets/css/"
+    filename: "app.css"
   notification: "Running SASS"
   src: "assets/scss/*.scss"
 

@@ -4,7 +4,6 @@ status: publish
 published: true
 title: Qui sommes-nous ?
 author: INARES
-wordpress_id: 27
 permalink: /qui-sommes-nous/
 categories: []
 tags: [about, informations, qui sommes-nous]

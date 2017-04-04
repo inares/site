@@ -1,4 +1,4 @@
-﻿# require 'i18n'
+# require 'i18n'
 
 # LOCALE = Jekyll.configuration({})['language'] # set your locale from config var
 # Create folder "_locales" and put some locale file from https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
@@ -22,7 +22,7 @@ module Jekyll
       "12" => "décembre"
     }
     @@months.default = "mois inconnu"
-  
+
     # def i18n_month(input)
       # level = case input
         # when "01" then "janvier"
@@ -38,11 +38,11 @@ module Jekyll
         # when "11" then "novembre"
         # when "12" then "décembre"
         # else "mois inconnu (" + input + ")"
-      # end      
+      # end
     # rescue
       # "Erreur"
     # end
-    
+
     def i18n_date_long(input)
       # t = Time.parse(input)
       mois = input.strftime("%m")

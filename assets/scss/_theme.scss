@@ -1,14 +1,15 @@
-// --------------------------------------------------
-// Theme
-// --------------------------------------------------
 
-
-
+/*******************************
+             Theme
+ *******************************/
 
 body {
   -webkit-font-smoothing: antialiased !important;
   font-family: $font-family-sans-serif;
   margin: 0px;
+  margin-top: 70px;
+  background-color: $theme-purple-dark;
+  color: $color-anti-flash-white;
 
   > .container {
     padding: 30px 15px 0 15px;   // For homepage
@@ -64,4 +65,8 @@ $svg-scale: 1.5;
 
 .sgv-users {
   width: $svg-scale*1.125em;
+}
+
+h2 {
+  margin-top: 1.8em;
 }

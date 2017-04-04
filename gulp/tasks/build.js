@@ -4,8 +4,8 @@ var sequence      = require("run-sequence");
 
 gulp.task("build", function(done) {
   if( isProduction ) {
-    sequence("clean", "jekyll-build", "sass", "javascript"/*, "analytics"*/, "copy-validation", "rev:collect", done);
+    sequence("clean", "images:thumb", "images:optimize", "jekyll-build", "sass", "javascript"/*, "analytics"*/, "copy-validation", "rev:collect", done);
   } else {
-    sequence("clean", "jekyll-build", "sass", "javascript"/*, "analytics"*/, "copy", done);
+    sequence("clean", "images:thumb", "images:optimize", "jekyll-build", "sass", "lint-css", "javascript"/*, "analytics"*/, "copy", done);
   }
 });

@@ -1,0 +1,34 @@
+- name: Accueil
+  url : /#
+  icon:
+    name: icon-home
+    css : sgv-home
+
+- name: Présentation
+  url : /#presentation
+  icon:
+    name: icon-presentation
+
+- name: Fonctionnement
+  url : /#fonctionnement
+  icon:
+    name: icon-cogs
+    css : sgv-cogs
+
+- name: Pédagogie
+  url : /#pedagogie
+  icon:
+    name: icon-users
+    css : sgv-users
+
+- name: Cours
+  url : /#cours
+  icon:
+    name: icon-graduation
+    css : sgv-graduation
+
+- name: Commencer
+  url : https://www.inares.org/dashboard
+  icon:
+    name: icon-play
+

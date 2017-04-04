@@ -3,10 +3,21 @@
     <div class="row">
       <div class="col-lg-12">
         <ul class="nav-footer">
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/honor">Charte</a></li>
-          <li><a href="/tos">Conditions d’utilisation</a></li>
-          <li><a href="/privacy">Confidentialité</a></li>
+        {% for item in site.data.nav-footer %}
+          {% if item.icon.css %}
+            {% assign iconNav = item.icon.css %}
+          {% else %}
+            {% assign iconNav = '' %}
+          {% endif %}
+
+          {% if item.icon.name %}
+            {% capture iconNavName %}<svg class="sgv-img {{iconNav}}"><use xlink:href="#{{item.icon.name}}"></use></svg> {% endcapture %}
+          {% else %}
+            {% assign iconNavName = '' %}
+          {% endif %}
+
+          <li><a href="{{item.url}}">{{iconNavName}}{{item.name}}</a></li>
+        {% endfor %}
         </ul>
       </div>
     </div>

@@ -4,7 +4,7 @@
 
 /* https://developers.google.com/youtube/iframe_api_reference */
 
-var youtube_activated = true;
+var youtube_activated = false;
 
 if( youtube_activated ) {
   (function() {
