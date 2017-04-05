@@ -10,3 +10,6 @@ gulp.task("build", function(done) {
     sequence("clean", "images:thumb", "images:optimize", "jekyll-build", "sass", "lint-css", "javascript", "copy", done);
   }
 });
+
+
+

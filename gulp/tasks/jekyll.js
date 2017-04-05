@@ -15,3 +15,10 @@ gulp.task("jekyll-build", function(done) {
 
   return;
 });
+
+
+gulp.task("jekyll-travis", function(done) {
+  spawn("bundle", ["exec", "jekyll", "serve", "--no-watch", "--detach", "_config.yml,_config.travis.yml"], {stdio: "inherit"}).on("close", done);  // Spawn jekyll commands
+
+  return;
+});

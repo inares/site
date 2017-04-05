@@ -52,8 +52,9 @@
     "yargs": ">=4.1.0"
   },
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build --production",
-    "test" : "casperjs test test/test.js"
+    "start"  : "gulp",
+    "build"  : "gulp build --production",
+    "travis" : "gulp travis",
+    "test"   : "casperjs test test/test.js"
   }
 }

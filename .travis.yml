@@ -73,9 +73,8 @@ install:
 # before_script:
 
 script:
-  - npm run start &
-  - npm run build
-  - sleep 10
+  - npm run travis
+  - sleep 1
   - npm run test
 
 # after_success:

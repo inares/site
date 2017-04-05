@@ -17,6 +17,9 @@ encoding:    "utf-8"
 
 is_production: true
 
+port: 8080
+host: 0.0.0.0
+
 
 twitter:
   username: inares_fr

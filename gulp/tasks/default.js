@@ -9,3 +9,7 @@ gulp.task("default", function(done) {
     sequence("build", "browser-sync", "watch", done);
   }
 });
+
+gulp.task("travis", function(done) {
+  sequence("clean", "jekyll-travis", "sass", "lint-css", "javascript", "copy", done);
+});
