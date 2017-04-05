@@ -1,3 +1,6 @@
+/*
+  Images
+*/
 
 .img-circle {
   border-radius: 50%;
@@ -52,4 +55,19 @@
     padding:      2% 0;
     display:      block;
   }
+}
+
+
+
+/*
+  Video player (YouTube)
+*/
+#player {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  left: 0;
+  height: 500px;
+  overflow: hidden;
+  background-color: $theme-purple-dark;
 }

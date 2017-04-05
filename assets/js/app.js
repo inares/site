@@ -72,7 +72,7 @@ function loadOK() {
 
     /**** Matrix effect ****/
     var eQuote = document.querySelector("#neat");
-    var matrix_activated = true && eQuote;
+    var matrix_activated = true && eQuote && getComputedStyle(eQuote).getPropertyValue('display') !== "none";
     if( matrix_activated ) {
       var regex = /\ /;
       // save the original paragraph as array of words
@@ -115,7 +115,7 @@ function loadOK() {
 
 
     /**** Hamburger (menu icon) ****/
-    var toggles = document.querySelectorAll(".c-hamburger");
+    var toggles = document.querySelectorAll(".hamburger");
 
     function toggleHandler( toggle ) {
       toggle.addEventListener( "click", function(e) {

@@ -5,7 +5,7 @@
 
 body {
   -webkit-font-smoothing: antialiased !important;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-base;
   margin: 0px;
   margin-top: 70px;
   background-color: $theme-purple-dark;
@@ -18,18 +18,24 @@ body {
 
 
 
+h2 {
+  margin-top: 1.8em;
+}
+
 a {
-  font-weight: 700;
+  font-weight: $font-bold;
   outline: 0;
   text-decoration: none;
   background-color: transparent;
   color: $theme-green-light;
-}
 
-a:active, a:hover, a:focus {
-  outline: 0;
-  color: $theme-green;
-  text-decoration: none;
+  &:active,
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $theme-green;
+    text-decoration: none;
+  }
 }
 
 
@@ -46,27 +52,23 @@ $svg-scale: 1.5;
   margin-right: 2px;
   width: $svg-scale*1em;
   height: $svg-scale*1em;
-}
 
-.sgv-graduation {
-  width: $svg-scale*1.2857142857142856em;
-  margin-bottom: -6px;
-}
+  &.sgv-graduation {
+    width: $svg-scale*1.2857142857142856em;
+    margin-bottom: -6px;
+  }
 
-.sgv-cogs {
-  width: $svg-scale*1.0712890625em;
-  margin-bottom: -4px;
-}
+  &.sgv-cogs {
+    width: $svg-scale*1.0712890625em;
+    margin-bottom: -4px;
+  }
 
-.sgv-home {
-  width: $svg-scale*0.9287109375em;
-  margin-bottom: -4px;
-}
+  &.sgv-home {
+    width: $svg-scale*0.9287109375em;
+    margin-bottom: -4px;
+  }
 
-.sgv-users {
-  width: $svg-scale*1.125em;
-}
-
-h2 {
-  margin-top: 1.8em;
+  &.sgv-users {
+    width: $svg-scale*1.125em;
+  }
 }

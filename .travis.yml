@@ -6,14 +6,30 @@ node_js:
   - '0.12'
 
 before_install:
-- rvm install 2.2.3
+  - rvm install 2.4.0
 
-before_script:
-  # install node.js dependencies, travis runs `npm install` by default
-  - npm install -g bower
+install:
   - npm install -g gulp
-  - bower install
-
+  - npm install -g casperjs
+  - npm install
   # install ruby dependencies
+  - gem install jekyll
   - gem install bundler
   - bundle install
+  # extract the phantomjs binary in local path
+  - curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar --strip-components=2 -xjf - phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+  - sudo ln -sf `pwd`/phantomjs /usr/local/bin/phantomjs
+  - phantomjs --version
+  - casperjs --version
+
+
+# before_script:
+
+script:
+  - npm start
+  - npm build
+  - sleep 5
+  - npm test
+
+# after_success:
+#   -

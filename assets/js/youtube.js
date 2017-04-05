@@ -1,10 +1,11 @@
 /*eslint-env browser*/
 /* global YT */
 /* global onYouTubeIframeAPIReady */
+/* global youtube_activated */
 
 /* https://developers.google.com/youtube/iframe_api_reference */
 
-var youtube_activated = false;
+// youtube_activated is set in head.html, with a liquid tag : var youtube_activated = {{site.is_production}};
 
 if( youtube_activated ) {
   (function() {

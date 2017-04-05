@@ -39,7 +39,7 @@ $form-color-border-field: lighten($form-color-background, 20%);
       display: inline-block;
       float: left;
       width: 150px;
-      font-weight: 700;
+      font-weight: $font-bold;
     }
   }
 
@@ -47,7 +47,6 @@ $form-color-border-field: lighten($form-color-background, 20%);
     color: #fff;
     background-color: $form-color-background-button;
     border-color:     $form-color-background-button-hover;
-    // padding:          .5em;
     border-radius:    .5em;
     cursor:           pointer;
     max-width:        150px;
@@ -95,7 +94,6 @@ $form-color-border-field: lighten($form-color-background, 20%);
     right:    0;
     margin:   0;
     padding:  0;
-    // font-size: 20px;
     cursor:   pointer;
     opacity:  0;
     z-index:  -1;
@@ -115,11 +113,9 @@ $form-color-border-field: lighten($form-color-background, 20%);
     background: transparent;
     border: none;
     border-bottom: 1px dashed $form-color-border-field;
-    // width: 275px;
     outline: none;
     padding: 0px 0px 0px 0px;
     width: 350px;
-    // width: 100%
   }
 
   input[type=submit],

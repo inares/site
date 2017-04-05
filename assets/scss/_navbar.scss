@@ -36,19 +36,21 @@
 
 
 .navbar-logo {
-  position: absolute;
-  top:      2px;
+  // position: absolute;
+  // top:      2px;
   margin-right: 10px;
   margin-left:  10px;
+  float: left;
+
+  & > img {
+    height: 50px;
+    width:  50px;
+  }
 }
 
-.navbar-logo > img {
-  height: 50px;
-  width:  50px;
-}
 
 
-@media (min-width: 992px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar .nav-container {
     width: 940px;
   }
@@ -80,24 +82,15 @@
 }
 
 
+// .navbar-collapse {
+//   height: 0px;
 
-/*******************************
-      Menu toogle à droite
- *******************************/
-@media (min-width: $grid-float-breakpoint) {
-  .navbar #menu-toggle {
-    display: none;
-  }
-}
-
-.navbar .label-toggle {
-  display: none;
-}
-
-.navbar-collapse:before, .navbar-collapse:after {
-  content: " ";
-  display: table;
-}
+//   &:before,
+//   &:after {
+//     content: " ";
+//     display: table;
+//   }
+// }
 
 
 
@@ -122,7 +115,7 @@
     border-radius: 3px;
   }
 
-  .c-hamburger.is-active~ul {
+  .hamburger.is-active~ul {
     opacity: 1;
     height: 100%;
     visibility: visible;

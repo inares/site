@@ -1,31 +1,27 @@
 
   <div class="navbar" role="navigation">
-    <a href="/#" class="navbar-logo"><img src="/assets/img/logo-inares-petit.png" alt="INARES"></a>
+    <a href="/#" class="navbar-logo"><img src="/assets/img/logo-inares-petit.png" alt="INARES" width="50px" height="50px"></a>
     <div class="nav-container">
-      <div class="navbar-collapse" style="height: 0px;">
+      <button class="hamburger" id="menu-toggle">
+        <span>toggle menu</span>
+      </button>
 
-        <button class="c-hamburger c-hamburger--htx" id="menu-toggle">
-          <span>toggle menu</span>
-        </button>
+      <ul class="navbar-nav" role="navigation">
+      {% for item in site.data.nav-menu %}
+        {% if item.icon.css %}
+          {% assign iconNav = item.icon.css %}
+        {% else %}
+          {% assign iconNav = '' %}
+        {% endif %}
 
-        <ul class="navbar-nav" role="navigation">
-        {% for item in site.data.nav-menu %}
-          {% if item.icon.css %}
-            {% assign iconNav = item.icon.css %}
-          {% else %}
-            {% assign iconNav = '' %}
-          {% endif %}
+        {% if item.icon.name %}
+          {% capture iconNavName %}<svg class="sgv-img {{iconNav}}"><use xlink:href="#{{item.icon.name}}"></use></svg> {% endcapture %}
+        {% else %}
+          {% assign iconNavName = '' %}
+        {% endif %}
 
-          {% if item.icon.name %}
-            {% capture iconNavName %}<svg class="sgv-img {{iconNav}}"><use xlink:href="#{{item.icon.name}}"></use></svg> {% endcapture %}
-          {% else %}
-            {% assign iconNavName = '' %}
-          {% endif %}
-
-          <li><a href="{{item.url}}">{{iconNavName}}{{item.name}}</a></li>
-        {% endfor %}
-        </ul>
-
-      </div><!--/navbar-collapse -->
+        <li><a href="{{item.url}}">{{iconNavName}}{{item.name}}</a></li>
+      {% endfor %}
+      </ul>
     </div><!--/container -->
   </div>

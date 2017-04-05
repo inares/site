@@ -115,8 +115,12 @@ watch:
   pages:
     - "*.{md,html,yml,xml}"
     - "{_data,_includes,_layouts,_pages,_posts, articles}/**/*.{md,html,yml,xml}"
-    - "!_site/**/*.*"
-    - "!assets/**/*.*"
+    - "!_site/**/*"
+    - "!assets/**/*"
+    - "!screenshots/**/*"
+    - "!node_modules/**/*"
+    - "!gulp/**/*"
+    - "!.*/**/*"
 
 selectors:
   src:
