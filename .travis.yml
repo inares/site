@@ -1,28 +1,39 @@
-language: node_js
+language: ruby
+
+git:
+  depth: 2
 
 node_js:
-  - '5'
-  - '4'
-  - '0.12'
+  - node
+
+rvm:
+  - 2.4.0
+
+gemfile:
+  - Gemfile
+
+cache: yarn
 
 # https://docs.travis-ci.com/user/customizing-the-build
 before_install:
-  - rvm install 2.4.0
+  # - rvm install 2.4.0
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq -y imagemagick graphicsmagick
 
 install:
-  - npm install -g gulp
-  - npm install -g casperjs
-  - npm install
+  # - npm install -g gulp
+  # - npm install -g casperjs
+  - yarn global add gulp casperjs
+  - yarn
   # install ruby dependencies
-  - gem install jekyll
+  # - gem install jekyll
   - gem install bundler
-  - bundle install
+  - bundle check || bundle install
   # extract the phantomjs binary in local path
-  - curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar --strip-components=2 -xjf - phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+  - curl -o- -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar --strip-components=2 -xjf - phantomjs-2.1.1-linux-x86_64/bin/phantomjs
   - sudo ln -sf `pwd`/phantomjs /usr/local/bin/phantomjs
   - phantomjs --version
   - casperjs --version
-
 
 # before_script:
 

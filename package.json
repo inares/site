@@ -54,7 +54,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-    "test" : "casperjs test test/test.js"
+    "test": "casperjs test test/test.js"
   },
   "_aerobatic": {
     "build": {
