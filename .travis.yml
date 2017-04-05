@@ -22,8 +22,8 @@ sudo: required
 before_install:
   # - rvm install 2.4.0
   - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - sudo apt-get update -qq
   - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list > /dev/null
+  - sudo apt-get update -qq
   - sudo apt-get install -qq -y imagemagick graphicsmagick yarn
 
 install:
