@@ -18,8 +18,11 @@ env:
   - NODE_JS_VERSION=7.8.0
 
 cache:
-- bundler: true
-- yarn: true
+# - bundler: true
+# - yarn: true
+  directories :
+  - vendor/bundle
+  - $HOME/.cache/yarn
 
 addons:
   apt:
@@ -70,10 +73,10 @@ install:
 # before_script:
 
 script:
-  - npm start &
-  - npm build
-  - sleep 5
-  - npm test
+  - npm run start &
+  - npm run build
+  - sleep 10
+  - npm run test
 
 # after_success:
 #   -

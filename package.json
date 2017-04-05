@@ -54,19 +54,6 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-    "test": "casperjs test test/test.js"
-  },
-  "_aerobatic": {
-    "build": {
-      "engine": "jekyll",
-      "notify": {
-        "email": {
-          "recipients": [
-            "admin@inares.org"
-          ],
-          "sendOnSuccess": true
-        }
-      }
-    }
+    "test" : "casperjs test test/test.js"
   }
 }
