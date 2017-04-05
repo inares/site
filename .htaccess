@@ -1,5 +1,8 @@
+AddDefaultCharset utf-8
+
+
 <ifModule mod_headers.c>
-    Header set Connection keep-alive
+  Header set Connection keep-alive
 </ifModule>
 
 # -- Password Protection --
@@ -21,30 +24,193 @@ ErrorDocument 404 /404/
 <IfModule mod_expires.c>
 ExpiresActive On
 # Default
-    ExpiresDefault "access plus 1 month"
+  ExpiresDefault "access plus 1 month"
 # HTML
-    ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType text/html "access plus 26 hours"
 # CSS
-    ExpiresByType text/css "access plus 10 years"
+  ExpiresByType text/css "access plus 10 years"
 # Webfonts
-    ExpiresByType application/x-font-ttf "access plus 1 month"
-    ExpiresByType font/opentype "access plus 1 month"
-    ExpiresByType application/x-font-woff "access plus 1 month"
-    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+  ExpiresByType application/x-font-ttf "access plus 10 years"
+  ExpiresByType font/opentype "access plus 10 years"
+  ExpiresByType application/x-font-woff "access plus 10 years"
+  ExpiresByType application/vnd.ms-fontobject "access plus 10 years"
 #JavaScript
-    ExpiresByType text/javascript "access plus 10 years"
-    ExpiresByType application/javascript "access plus 10 years"
-    ExpiresByType application/x-javascript "access plus 10 years"
+  ExpiresByType text/javascript "access plus 10 years"
+  ExpiresByType application/javascript "access plus 10 years"
+  ExpiresByType application/x-javascript "access plus 10 years"
 # Images
-    ExpiresByType image/gif "access plus 10 years"
-    ExpiresByType image/jpeg "access plus 10 years"
-    ExpiresByType image/jpg "access plus 10 years"
-    ExpiresByType image/png "access plus 10 years"
-    ExpiresByType image/x-icon "access plus 10 years"
-    ExpiresByType image/svg+xml "access plus 10 years"
+  ExpiresByType image/gif "access plus 10 years"
+  ExpiresByType image/jpeg "access plus 10 years"
+  ExpiresByType image/jpg "access plus 10 years"
+  ExpiresByType image/png "access plus 10 years"
+  ExpiresByType image/x-icon "access plus 10 years"
+  ExpiresByType image/svg+xml "access plus 10 years"
 # Other
-    ExpiresByType text/plain "access plus 1 months"
+  ExpiresByType text/plain "access plus 1 months"
+  ExpiresByType text/xml A3600 "access plus 26 hours"
 </IfModule>
 
-# -- Compression --
-SetOutputFilter DEFLATE
+# 26 hours
+<filesMatch "\.(xml|txt|html|htm)$">
+  ExpiresDefault A93600
+  Header set Cache-Control "max-age=93600"
+</filesMatch>
+
+
+
+
+
+# ----------------------------------------------------------------------
+# Gzip compression
+# Compress content before it is delivered to the client
+# http://httpd.apache.org/docs/2.0/mod/mod_deflate.html
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+  # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+  <IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+    </IfModule>
+  </IfModule>
+
+  <IfVersion < 2.4.4>
+    <IfModule filter_module>
+      # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+      FilterDeclare	COMPRESS
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$text/html
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$text/css
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$text/plain
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$text/xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$text/x-component
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/javascript
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/json
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/xhtml+xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/rss+xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/atom+xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/vnd.ms-fontobject
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$image/svg+xml
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$image/x-icon
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$application/x-font-ttf
+      FilterProvider	COMPRESS	DEFLATE	resp=Content-Type	$font/opentype
+      FilterChain	COMPRESS
+      FilterProtocol	COMPRESS	DEFLATE	change=yes;byteranges=no
+    </IfModule>
+  </IfVersion>
+
+  <IfVersion >= 2.4.4>
+    <IfModule filter_module>
+      FilterDeclare	COMPRESS
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'text/html'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'text/css'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'text/plain'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'text/xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'text/x-component'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/javascript'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/json'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/xhtml+xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/rss+xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/atom+xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/vnd.ms-fontobject'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'image/svg+xml'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'image/x-icon'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'application/x-font-ttf'"
+      FilterProvider	COMPRESS	DEFLATE	"%{Content_Type} = 'font/opentype'"
+      FilterChain	COMPRESS
+      FilterProtocol	COMPRESS	DEFLATE	change=yes;byteranges=no
+    </IfModule>
+  </IfVersion>
+
+  <IfModule !mod_filter.c>
+    # Legacy versions of Apache
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+  </IfModule>
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Start rewrite engine
+# Provides a rule-based rewriting engine to rewrite requested URLs on the fly
+# http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html
+# ----------------------------------------------------------------------
+
+# FollowSymLinks must be enabled for this to work
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+</IfModule>
+
+# Block access to "hidden" directories whose names begin with a period
+<IfModule mod_rewrite.c>
+	RewriteCond %{SCRIPT_FILENAME} -d
+	RewriteCond %{SCRIPT_FILENAME} -f
+	RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Disable server signature (Security)
+# Configures the Server HTTP response header
+# http://httpd.apache.org/docs/2.2/mod/core.html#serversignature
+# ----------------------------------------------------------------------
+ServerSignature Off
+ServerTokens Prod
+
+
+# ----------------------------------------------------------------------
+# Disable directory browsing (Security)
+# Generates directory indexes, automatically, similar to the Unix ls command or the Win32 dir shell command
+# http://httpd.apache.org/docs/2.0/mod/mod_autoindex.html
+# ----------------------------------------------------------------------
+<IfModule mod_autoindex.c>
+	Options -Indexes
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Block access to backup and source files (Security)
+# This files may be left by some text/html editors and pose a great security danger
+# ----------------------------------------------------------------------
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|yml|yaml|md)|~)$">
+	Order allow,deny
+	Deny from all
+	Satisfy All
+</FilesMatch>
+
+
+# ----------------------------------------------------------------------
+# Instructs the proxies to cache two versions of the resource: one compressed, and one uncompressed.
+# https://developers.google.com/speed/docs/best-practices/caching#LeverageProxyCaching
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# CORS-enabled images (@crossorigin)
+# Send CORS headers if browsers request them; enabled by default for images.
+# http://developer.mozilla.org/en/CORS_Enabled_Image
+# http://blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html
+# http://hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/
+# http://wiki.mozilla.org/Security/Reviews/crossoriginAttribute
+# ----------------------------------------------------------------------
+<IfModule mod_setenvif.c>
+	<IfModule mod_headers.c>
+		<FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+			SetEnvIf Origin ":" IS_CORS
+			Header set Access-Control-Allow-Origin "*" env=IS_CORS
+		</FilesMatch>
+	</IfModule>
+</IfModule>
+

@@ -1,6 +1,8 @@
   <script async src="/assets/js/all.min.js"></script>
 
-  <link rel="prefetch" href="/contact">
+{% for item in site.data.nav-footer %}
+  <link rel="prefetch" href="{{item.url}}">
+{% endfor %}
 
 
 

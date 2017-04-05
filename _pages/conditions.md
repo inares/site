@@ -12,13 +12,13 @@ keywords: conditions d'utilisation, conditions, tos, terms of use
 
 
 <div class="container featurette-violet featurette-text">
-  <p class="featurette-heading"><span class="fa fa-file-text-o"></span> Conditions générales d’utilisation</p>
+  <p class="featurette-heading">Conditions générales d’utilisation</p>
   <br>
 
   <h2>Préambule</h2>
 
   <p class="lead text-justify">
-    Bienvenue à l'INARES ! L'<b>In</b>stitut <b>Ar</b>istotélicien d'<b>É</b>tudes <b>S</b>cientifiques (« INARES ») est une association à but non lucratif dont la mission est de proposer des cours en ligne dans les sciences, en suivant la méthodologie d'Aristote.
+    Bienvenue à l'INARES ! L'<b>IN</b>stitut <b>AR</b>istotélicien d'<b>É</b>tudes <b>S</b>cientifiques (« INARES ») est une association à but non lucratif dont la mission est de proposer des cours en ligne dans les sciences en suivant la méthodologie d'Aristote.
   </p>
 
   <p class="text-justify">Les présentes Conditions générales d’utilisation décrivent les termes et conditions dans lesquels l'<b>In</b>stitut <b>Ar</b>istotélicien d'<b>É</b>tudes <b>S</b>cientifiques (ci-après « INARES ») fournit un service de cours sur son site Internet, <a href="http://www.inares.org/" target="_blank">www.inares.org</a> (ci-après désigné par « site »).</p>
@@ -161,5 +161,5 @@ keywords: conditions d'utilisation, conditions, tos, terms of use
 
   <p class="text-justify">L’utilisateur du site accepte que tout litige relatif à l’interprétation, l’exécution des présentes Conditions générales d’utilisation, annexes et/ou grief lié au fonctionnement de ce site soit réglé devant une juridiction du ressort de l'INARES et ce y compris en cas de référé, de requête ou de pluralité de défendeurs.</p>
 
-  <p class="last-change"><br />Dernière mise à jour le 20 mai 2015.</p>
+  <p class="last-change"><br /><em>Dernière mise à jour le 20 mai 2015.</em></p>
 </div>

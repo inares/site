@@ -1,15 +1,15 @@
 const gulp            = require('gulp');
-const imagemin        = require('gulp-imagemin');
-const imageminGuetzli = require('imagemin-guetzli');
-const imageResize     = require('gulp-image-resize');
-const newer           = require('gulp-newer');
-const rename          = require("gulp-rename");
-
-const config          = require("../util/loadConfig");
-// const args            = require("../util/getArgs");
 
 
 gulp.task( 'images:thumb', function(done) {
+  const imagemin        = require('gulp-imagemin');
+  const imageminGuetzli = require('imagemin-guetzli');
+  const imageResize     = require('gulp-image-resize');
+  const newer           = require('gulp-newer');
+  const rename          = require("gulp-rename");
+
+  const config          = require("../util/loadConfig");
+
   return gulp.src(config.image.thumb.original+'*')
     .pipe(rename(function(path) { path.basename += "-thumb"; }))
     .pipe(newer(config.image.buildImgDir))
@@ -27,6 +27,12 @@ gulp.task( 'images:thumb', function(done) {
 
 
 gulp.task( 'images:optimize', function(done) {
+  const imagemin        = require('gulp-imagemin');
+  const imageminGuetzli = require('imagemin-guetzli');
+  const newer           = require('gulp-newer');
+
+  const config          = require("../util/loadConfig");
+
   return gulp.src(config.image.src+'*')
     .pipe(newer(config.image.buildImgDir))
     .pipe(imagemin([imageminGuetzli()]))
