@@ -7,6 +7,9 @@ assets/js/main*.js
 assets/js/dl_analytics*.js
 rev-manifest.json
 
+# Test
+test/phantomjs
+
 # Vendor directory
 assets/vendor/
 
