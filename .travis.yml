@@ -43,8 +43,8 @@ before_install:
 
 install:
   # - rm -rf ~/.nvm
-  - nvm --version
-  # - nvm list || true
+  # - nvm --version
+  - nvm list
 
   # Installation de NVM
   # - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
