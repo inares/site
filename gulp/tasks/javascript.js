@@ -1,26 +1,27 @@
 /*eslint-env node*/
-const fs            = require('fs');
-const pump          = require('pump');
-const util          = require('util');
-const gulpIf        = require('gulp-if');
-const addsrc        = require('gulp-add-src');
-// const uglify        = require('gulp-uglify');
-const request       = require('request');
-const browserSync   = require("browser-sync");
-const rename        = require("gulp-rename");
-const concat        = require("gulp-concat");
-const gulp          = require("gulp");
-
-const closure       = require("gulp-google-closure-compiler-post");
-
-const config        = require("../util/loadConfig");
-const args          = require("../util/getArgs");
-
-const millisecondsPerDay = 24 * 60 * 60 * 1000;
-const closureOpt         = {jsExterns: 'window.ga;ga;YT.Player;onYouTubeIframeAPIReady;loadOK;player.mute;player.setVolume;player.playVideo'};
+const gulp = require("gulp");
 
 
 gulp.task("javascript", function(done) {
+  const fs            = require('fs');
+  const pump          = require('pump');
+  const util          = require('util');
+  // const gulpIf        = require('gulp-if');
+  const addsrc        = require('gulp-add-src');
+  // const uglify        = require('gulp-uglify');
+  const request       = require('request');
+  const browserSync   = require("browser-sync");
+  const rename        = require("gulp-rename");
+  const concat        = require("gulp-concat");
+
+  const closure       = require("gulp-google-closure-compiler-post");
+
+  const config        = require("../util/loadConfig");
+  const args          = require("../util/getArgs");
+
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  const closureOpt         = {jsExterns: 'window.ga;ga;YT.Player;onYouTubeIframeAPIReady;loadOK;player.mute;player.setVolume;player.playVideo'};
+
   var diffDays = 99;
   var configJ  = config.javascript;
   var configA  = args.isProduction ? config.analytics.prod : config.analytics.debug;

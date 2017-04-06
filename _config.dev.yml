@@ -1,5 +1,5 @@
-domain:               "inares-site-home-inares.c9users.io"
-url:                  "https://inares-site-home-inares.c9users.io"
+domain: "inares-site-home-inares.c9users.io"
+url:    "https://inares-site-home-inares.c9users.io"
 
 is_production: false
 

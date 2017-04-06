@@ -72,7 +72,7 @@ function loadOK() {
 
     /**** Matrix effect ****/
     var eQuote = document.querySelector("#neat");
-    var matrix_activated = true && eQuote && getComputedStyle(eQuote).getPropertyValue('display') !== "none";
+    var matrix_activated = true && eQuote;
     if( matrix_activated ) {
       var regex = /\ /;
       // save the original paragraph as array of words
@@ -106,10 +106,13 @@ function loadOK() {
         });
       }
 
-      /*var repeat =*/ setInterval(function() {
+      setInterval( function() {
+        if( getComputedStyle(eQuote).getPropertyValue('display') === "none" ) {
+          return;
+        }
         if( Math.random() > 0.85 ) fClearAllHighlights( eQuote );
-        if( getComputedStyle(eQuote).getPropertyValue('display') != "none" ) fHighlightRandomWord( eWords );
-      }, 275);
+        fHighlightRandomWord( eWords );
+      }, 275 );
     }
 
 

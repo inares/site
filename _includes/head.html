@@ -14,21 +14,20 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
 
   <link rel="prefetch" href="/assets/js/all.min.js">
-  <link rel="prefetch" href="/assets/css/app.css">
 
   <link rel="prefetch" href="/assets/fonts/lato400.woff">
-  <!--<link rel="prefetch" href="/assets/fonts/lato400e.woff">-->
+  <!-- <link rel="prefetch" href="/assets/fonts/lato400e.woff"> -->
   <link rel="prefetch" href="/assets/fonts/lato700.woff">
-  <!--<link rel="prefetch" href="/assets/fonts/lato700e.woff">-->
+  <!-- <link rel="prefetch" href="/assets/fonts/lato700e.woff"> -->
 
   <link rel="prefetch" href="/assets/img/logo-inares-petit.png">
   <link rel="prefetch" href="/assets/img/logo-inares-aristote.jpg">
   <link rel="prefetch" href="/assets/img/outils.jpg">
   <link rel="prefetch" href="/assets/img/platon_aristote.jpg">
-  <!--<link rel="prefetch" href="">-->
+  <!-- <link rel="prefetch" href=""> -->
 
   <link rel="profile" href="http://gmpg.org/xfn/11" />
-  <link rel="stylesheet" href="/assets/css/app.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/app.css" /> -->
   <link rel="canonical" href="{{site.url}}{{page.url}}" />
   <link rel="alternate" type="application/atom+xml" href="{{site.url}}/feed.xml" title="Flux de syndication pour les abonnements (Atom)" />
 
@@ -152,8 +151,9 @@
   </script>
 
   <script type="application/javascript">
-    /*var youtube_activated = {{site.is_production}};*/
-    var youtube_activated = true;
+    var youtube_activated = {{site.is_production}};
   </script>
+
+  <style>{% include app.css %}</style>
 </head>
 <body onload="loadOK();">

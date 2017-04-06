@@ -1,8 +1,8 @@
 const gulp = require('gulp');
-var config = require("../util/loadConfig");
 
 
 gulp.task( 'lint-css', function lintCssTask(done) {
+  const config        = require("../util/loadConfig");
   const gulpStylelint = require('gulp-stylelint');
   const pump          = require('pump');
 

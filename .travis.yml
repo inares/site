@@ -77,5 +77,5 @@ script:
   - sleep 1
   - npm run test
 
-# after_success:
-#   -
+after_script:
+  - pkill -f jekyll

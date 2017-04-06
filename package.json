@@ -23,6 +23,7 @@
     "gulp": ">=3.9.0",
     "gulp-add-src": ">=0.2.0",
     "gulp-autoprefixer": ">=3.1.0",
+    "gulp-clean-css": "^3.0.4",
     "gulp-concat": ">=2.6.0",
     "gulp-cssnano": ">=2.1.1",
     "gulp-download": ">=0.0.1",
@@ -52,9 +53,9 @@
     "yargs": ">=4.1.0"
   },
   "scripts": {
-    "start"  : "gulp",
-    "build"  : "gulp build --production",
-    "travis" : "gulp travis",
-    "test"   : "casperjs test test/test.js"
+    "start": "gulp",
+    "build": "gulp build --production",
+    "travis": "gulp travis",
+    "test": "casperjs test test/test.js"
   }
 }

@@ -16,3 +16,6 @@ https://codepen.io/nicoptere/pen/kkdQzb
 
 # HTML-proofer (tests HTML)
 https://github.com/gjtorikian/html-proofer
+
+# Handle errors
+https://www.npmjs.com/package/gulp-prettyerror

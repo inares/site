@@ -18,6 +18,9 @@
 
           <li><a href="{{item.url}}">{{iconNavName}}{{item.name}}</a></li>
         {% endfor %}
+        {% if jekyll.environment == "netlify" %}
+          <li><a href="https://www.netlify.com"><img style="vertical-align:middle;margin-top:2px;margin-bottom:2px;" src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"/></a></li>
+        {% endif %}
         </ul>
       </div>
     </div>

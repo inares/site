@@ -1,14 +1,14 @@
 - name: Contact
-  url : /contact
+  url : /contact/
 
 - name: Charte
-  url : /charte
+  url : /charte/
 
 - name: Conditions d’utilisation
-  url : /conditions
+  url : /conditions/
 
 - name: Confidentialité
-  url : /confidentialite
+  url : /confidentialite/
 
 
 

@@ -2,7 +2,7 @@ const gulp = require("gulp");
 
 
 gulp.task("copy", function() {
-  const browserSync   = require("browser-sync");
+  // const browserSync   = require("browser-sync");
   const config        = require("../util/loadConfig");
   const addsrc        = require('gulp-add-src');
   const gulpIf        = require('gulp-if');
@@ -28,7 +28,7 @@ gulp.task("copy", function() {
     }
   }
 
-  browserSync.notify(config.copy.notification);
+  // browserSync.notify(config.copy.notification);
 
   var srcJS  = config.javascript.dest.buildJSDir + config.javascript.filename_all;
   var srcCSS = config.sass.dest.buildSASSDir + config.sass.dest.filename;

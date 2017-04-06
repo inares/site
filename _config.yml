@@ -33,7 +33,7 @@ exclude:
   - "/assets/"
   - "/guetzli/"
   - "/validation/"
-  - "/screenshots/"
+  - "/test/"
   - "/gulp/"
   - "/node_modules/"
   - "bower.json"

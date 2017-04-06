@@ -1,15 +1,21 @@
-var gulp         = require("gulp");
-var sequence     = require("run-sequence");
-var isProduction = require("../util/getArgs").isProduction;
+const gulp = require("gulp");
 
-gulp.task("default", function(done) {
+gulp.task("build", function(done) {
+  const sequence     = require("run-sequence");
+  const isProduction = require("../util/getArgs").isProduction;
+
   if( isProduction ) {
-    sequence("build", done);
+    sequence("clean", "sass", "jekyll-build", "javascript", "copy-validation", "rev:collect", done);
   } else {
-    sequence("build", "browser-sync", "watch", done);
+    sequence("images:thumb", "images:optimize", "sass", "jekyll-serve", "javascript", "copy", "lint-css"/*, "browser-sync"*/, "watch", done);
   }
 });
 
+gulp.task('default', ['build']);
+
+
 gulp.task("travis", function(done) {
-  sequence("clean", "jekyll-travis", "sass", "lint-css", "javascript", "copy", done);
+  const sequence     = require("run-sequence");
+
+  sequence("sass", "jekyll-travis", "javascript", "copy-validation", "rev:collect", "lint-css", done);
 });

@@ -1,10 +1,11 @@
-var collect       = require("gulp-rev-collector");
-var config        = require("../util/loadConfig");
-var gulp          = require("gulp");
-var rev           = require("gulp-rev");
+const gulp = require("gulp");
+
 
 // Revision asset files in the source dir and write the rev-manifest.json
 gulp.task("revision", function() {
+  const config = require("../util/loadConfig");
+  const rev    = require("gulp-rev");
+
   var srcJS  = config.javascript.dest.buildJSDir + config.javascript.filename_all;
   var srcCSS = config.sass.dest.buildSASSDir + config.sass.dest.filename;
 
@@ -21,8 +22,12 @@ gulp.task("revision", function() {
     .pipe(gulp.dest(config.revision.sources.manifest.dest));
 });
 
+
 // Replace links to assets in files (build dir) from the rev-manifest.json
 gulp.task("rev:collect", ["revision"], function() {
+  const collect = require("gulp-rev-collector");
+  const config  = require("../util/loadConfig");
+
   return gulp.src(config.revision.collect.src)
   .pipe(collect())
   .pipe(gulp.dest(config.revision.collect.dest));

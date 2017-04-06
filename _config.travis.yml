@@ -1,5 +1,5 @@
-domain:               "localhost"
-url:                  "http://localhost:8080"
+domain: "localhost"
+url:    "http://localhost:8080"
 
-is_production: false
+is_production: true
 
