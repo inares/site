@@ -36,6 +36,7 @@ exclude:
   - "/test/"
   - "/gulp/"
   - "/node_modules/"
+  - "/vendor/"
   - "bower.json"
   - "composer.json"
   - "composer.lock"

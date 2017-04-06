@@ -14,18 +14,14 @@ rvm:
 gemfile:
   - Gemfile
 
-env:
-  - NODE_JS_VERSION=7.8.0
-
 cache:
-# - bundler: true
-# - yarn: true
   directories :
-  - vendor/bundle
-  - $HOME/.cache/yarn
+  - vendor/bundle       # bundler cache folder
+  - $HOME/.cache/yarn   # yarn cache folder
 
 addons:
   apt:
+    # Pour ajouter yarn via apt
     # sources:
     # - sourceline: 'deb http://dl.yarnpkg.com/debian/ stable main'
     #   key_url: 'http://dl.yarnpkg.com/debian/pubkey.gpg'
@@ -36,20 +32,18 @@ addons:
 
 # https://docs.travis-ci.com/user/customizing-the-build
 before_install:
-  # - rvm install 2.4.0
+  # - rvm install 2.3.1
   # Installation de Yarn
   - rvm list
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
-  # - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  # - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list > /dev/null
 
 install:
   # - rm -rf ~/.nvm
   # - nvm --version
   - nvm list
 
-  # Installation de NVM
+  # Installation de NVM, si besoin
   # - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
   # - nvm --version
   # - nvm install $NODE_JS_VERSION
@@ -64,6 +58,7 @@ install:
   # - gem install jekyll
   # - gem install bundler
   - bundle install --jobs=3 --retry=3
+  - bundle package   # Package the .gem files required into the vendor/cache directory
   # extract the phantomjs binary in local path
   # - curl -o- -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar --strip-components=2 -xjf - phantomjs-2.1.1-linux-x86_64/bin/phantomjs
   # - sudo ln -sf `pwd`/phantomjs /usr/local/bin/phantomjs
@@ -79,3 +74,4 @@ script:
 
 after_script:
   - pkill -f jekyll
+  - sleep 1

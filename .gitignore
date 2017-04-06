@@ -12,6 +12,7 @@ test/phantomjs
 
 # Vendor directory
 assets/vendor/
+vendor/
 
 # Jekyll build
 _site
