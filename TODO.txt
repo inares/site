@@ -13,9 +13,15 @@ http://phantomjs.org/
 http://casperjs.org/
 
 https://codepen.io/nicoptere/pen/kkdQzb
+https://zeit.co/now
 
 # HTML-proofer (tests HTML)
 https://github.com/gjtorikian/html-proofer
 
 # Handle errors
 https://www.npmjs.com/package/gulp-prettyerror
+
+
+https://openedx.atlassian.net/wiki/display/DOC/Open+edX+Releases
+open-release/ficus.2
+http://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/setting_pacing.html#setting-course-pacing

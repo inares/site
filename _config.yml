@@ -1,15 +1,16 @@
 # Site settings
 language:             "fr"
 title:                "INARES - Cours de sciences en ligne"
-description:          "L'INARES propose des cours en ligne gratuits en français sur la philosophie, l'histoire et l'économie. ous allions un enseignement de qualité aux technologies et pédagogies modernes. Tout le monde peut ainsi facilement profiter de ces savoirs."
+description:          "L'INARES propose des cours en ligne gratuits en français sur la philosophie, l'histoire et l'économie. Nous allions un enseignement de qualité aux technologies et pédagogies modernes. Tout le monde peut ainsi facilement profiter de ces savoirs."
 keywords:             "INARES, MOOC, francophone, cours, course, e-learning, français, france, enseignement, formation, gratuit, online, en ligne, ligne, distance, à distance, philosophie, histoire, économie, pédagogie, apprentissage, certification, fun, institut, université, bac, lycée, university, 2015, droit, gestion de projet, management"
 google-verification:  ""
-domain:               "inares.org"
-url:                  "https://www.inares.org"
+domain:               "inares.fr"
+url:                  "https://www.inares.fr"
 author:               "INARES"
 logo:                 "/assets/img/logo.jpg"
 mail:                 "contact@inares.org"
 timezone:             "Europe/Paris"
+
 
 future:      false
 show_drafts: false
@@ -62,6 +63,7 @@ exclude:
   - "*.rb"
   - "*.yml"
   - "yarn.lock"
+  - "site*.tar.bz2"
 
 keep_files:
   - "img"

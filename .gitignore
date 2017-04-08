@@ -10,6 +10,9 @@ rev-manifest.json
 # Test
 test/phantomjs
 
+# Deploy
+site*.tar.bz2
+
 # Vendor directory
 assets/vendor/
 vendor/
