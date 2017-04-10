@@ -20,14 +20,17 @@ gulp.task("jekyll-build", function(done) {
 gulp.task("jekyll-serve", function(done) {
   const spawn = require("cross-spawn");
   spawn( "bundle", ["exec", "jekyll", "serve", "--no-watch", "--detach", "_config.yml,_config.dev.yml"], {stdio: "inherit"} );  // Spawn jekyll commands
+  spawn( "sleep", ["1"], {stdio: "inherit"}).on("close", done);
 
-  return done();
+  return;
 });
 
 
 gulp.task("jekyll-travis", function(done) {
   const spawn = require("cross-spawn");
-  spawn( "bundle", ["exec", "jekyll", "serve", "--no-watch", "--detach", "_config.yml,_config.travis.yml"], {stdio: "inherit"} );  // Spawn jekyll commands
 
-  return done();
+  spawn( "bundle", ["exec", "jekyll", "serve", "--no-watch", "--detach", "_config.yml,_config.travis.yml"], {stdio: "inherit"} );  // Spawn jekyll commands
+  spawn( "sleep", ["3"], {stdio: "inherit"}).on("close", done);
+
+  return;
 });
