@@ -11,6 +11,7 @@ rev-manifest.json
 test/phantomjs
 
 # Deploy
+_includes/app.css
 site*.tar.bz2
 
 # Vendor directory

@@ -28,7 +28,7 @@
     css : sgv-graduation
 
 - name: Commencer
-  url : //cours.inares.fr
+  url : //cours.inares.org
   icon:
     name: icon-play
 
