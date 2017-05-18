@@ -15,7 +15,7 @@ gulp.task("watch", function() {
     } );
 
   gulp.watch( config.sass.src, function () {
-      return sequence( "sass", "copy"/*, browserSync.reload*/ );
+      return sequence( "sass", "jekyll-build", "copy"/*, browserSync.reload*/ );
     } );
 
   // gulp.watch(config.watch.pages, ["jekyll-build"/*, browserSync.reload*/]);

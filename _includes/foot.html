@@ -2,10 +2,13 @@
 
   <link rel="prefetch" href="/">
 {% for item in site.data.nav-footer %}
-  <link rel="prefetch" href="{{item.url}}">
+  <link rel="prefetch" href="{{item.url}}" pr="0.5">
 {% endfor %}
 
-  <link rel="prefetch" href="//cours.{{site.domain}}/">
+  {% if site.is_production == "netlify" %}
+    <link rel="prefetch" href="//cours.{{site.domain}}/" pr="1.0">
+  {% endif %}
+
 
 </body>
 </html>

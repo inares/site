@@ -12,7 +12,7 @@ casper.test.begin( "Testing home page for Desktop", 1, function(test) {
       this.wait( 1000 );
     })
     .then(function () {
-      this.echo( 'YouTube', 'COMMENT' );
+      this.echo( 'Testing YouTube' );
       test.assertExists( 'iframe#player', 'YouTube iframe exists' );
     })
     .run(function () {
@@ -30,7 +30,7 @@ casper.test.begin( "Testing home page for Mobile", 1, function(test) {
     .then(function () {
     })
     .then(function () {
-      this.echo( 'YouTube', 'COMMENT' );
+      this.echo( 'Testing YouTube' );
       test.assertDoesntExist( 'iframe#player', 'YouTube iframe does not exists' );
     })
     .run(function () {

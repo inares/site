@@ -10,7 +10,10 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(/assets/fonts/lato400.woff) format('woff');
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('/assets/fonts/lato-v13-latin-400.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/lato-v13-latin-400.woff' ) format('woff' ); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // src: local('Lato Regular'), local('Lato-Regular'), url(/assets/fonts/lato400.woff) format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
@@ -28,7 +31,10 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(/assets/fonts/lato700.woff) format('woff');
+  src: local('Lato Bold'), local('Lato-Bold'),
+       url('/assets/fonts/lato-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/assets/fonts/lato-v13-latin-700.woff' ) format('woff' ); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // src: local('Lato Bold'), local('Lato-Bold'), url(/assets/fonts/lato700.woff) format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 

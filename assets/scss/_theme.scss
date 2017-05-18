@@ -5,7 +5,13 @@
 
 body {
   -webkit-font-smoothing: antialiased !important;
-  font-family: $font-family-base;
+  // font-family: $font-family-base;
+  font-family: Verdana, Geneva, sans-serif;
+
+  @media (min-width: $grid-float-breakpoint) {
+    font-size: 14px;
+  }
+
   margin: 0px;
   margin-top: 70px;
   background-color: $theme-purple-dark;
