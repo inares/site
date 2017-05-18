@@ -77,7 +77,7 @@ install:
 script:
   - npm run travis
   - sleep 3
-  - npm run test
+  # - npm run test
 
 after_script:
   - pkill -f jekyll -9
