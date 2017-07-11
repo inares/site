@@ -78,7 +78,7 @@ compress_html:
   startings:  [html, head, body]
 
 # Plugins
-gems: ["jekyll-sitemap", "jekyll-seo-tag"]
+plugins: ["jekyll-sitemap", "jekyll-seo-tag"]
 
 # Conversion
 incremental: true
