@@ -25,3 +25,22 @@ https://www.npmjs.com/package/gulp-prettyerror
 https://openedx.atlassian.net/wiki/display/DOC/Open+edX+Releases
 open-release/ficus.2
 http://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/setting_pacing.html#setting-course-pacing
+
+
+# Lazy Load
+https://toddmotto.com/echo-js-simple-javascript-image-lazy-loading/
+https://github.com/toddmotto/echo/blob/master/dist/echo.js
+https://github.com/craigbuckler/progressive-image.js
+https://github.com/verlok/lazyload
+
+# En cours
+https://codepen.io/rposbo/pen/ONmgVG
+https://www.robinosborne.co.uk/2016/05/16/lazy-loading-images-dont-rely-on-javascript/
+https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/ # §2
+https://www.webpagetest.org/result/170630_S4_J02/1/details/#waterfall_view_step1
+https://webspeedtest.cloudinary.com/results/170630_S4_J02 ==> Passage en webm à faire
+
+
+
+
+

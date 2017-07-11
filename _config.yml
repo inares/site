@@ -38,6 +38,7 @@ exclude:
   - "/gulp/"
   - "/node_modules/"
   - "/vendor/"
+  - "/scripts/"
   - "bower.json"
   - "composer.json"
   - "composer.lock"
