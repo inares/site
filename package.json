@@ -55,7 +55,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-    "travis": "gulp travis --production",
+    "travis": "gulp travis --production --analytics",
     "test": "casperjs test test/test.js"
   }
 }
