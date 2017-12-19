@@ -47,7 +47,7 @@
     "pump": ">=1.0.2",
     "readable-stream": ">=2.2.6",
     "request": ">=2.81.0",
-    "require-dir": ">=0.3.0",
+    "require-dir": ">=0.3.2",
     "run-sequence": ">=1.1.5",
     "stylelint-csstree-validator": ">=1.1.1",
     "yargs": ">=4.1.0"
