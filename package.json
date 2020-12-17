@@ -45,7 +45,7 @@
     "imagemin-guetzli": ">=0.1.5",
     "js-yaml": ">=3.8.2",
     "pump": ">=1.0.2",
-    "readable-stream": ">=2.2.6",
+    "readable-stream": "~3.6.0",
     "request": ">=2.81.0",
     "require-dir": ">=0.3.0",
     "run-sequence": ">=1.1.5",
