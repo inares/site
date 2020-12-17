@@ -60,3 +60,7 @@ Gemfile.lock
 # Composer
 composer.lock
 
+
+
+# SSH key
+.ssh/
