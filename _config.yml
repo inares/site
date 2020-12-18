@@ -51,6 +51,7 @@ exclude:
   - "Makefile"
   - "npm-debug.log"
   - "package.json"
+  - "package-lock.json"
   - "README.md"
   - "README"
   - "TODO.txt"
